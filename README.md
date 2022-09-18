@@ -1,6 +1,7 @@
 # InventoryList
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+This is a simple Inventory application. It doesn't need any database configuration. It only uses local storage of a system.
 
 ## Development server
 
