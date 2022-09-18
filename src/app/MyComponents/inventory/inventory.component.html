@@ -1,0 +1,13 @@
+<div class="container">
+    <h1 class="text-center mb-3">Inventory</h1>
+    <app-add-items (itemsAdd)="addItems($event)"></app-add-items>
+    <h4>Your items</h4>
+    <hr/> 
+    <div *ngIf="this.items.length===0; else elseBlock">No items to display.</div>
+    <ng-template #elseBlock>
+        <div *ngFor="let item of items; index as i">
+            <app-inventory-item [items]="item" [i]="i" (itemsDelete)="deleteItems($event)" (itemsCheckBox)="toggleItems($event)" (itemsQtyIncrease)="increaseQty($event)" (itemsQtyDecrease)="decreaseQty($event)"></app-inventory-item>
+            <hr/> 
+        </div>
+    </ng-template>
+</div>

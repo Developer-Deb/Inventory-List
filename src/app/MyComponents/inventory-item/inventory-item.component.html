@@ -1,0 +1,24 @@
+<div class="my-3">
+    <h5 [ngClass]="{'strike':!items.active}">Name : {{items.title}}</h5>
+    <h6 [ngClass]="{'strike':!items.active}">Description : {{items.desc}}</h6>
+    <div class="row row-cols-auto mt-3">
+      <div class="col">
+        <button class="btn btn-sm btn-success" (click)="onDecrease(items)">-</button>
+      </div>
+      <div class="col">
+        <p [ngClass]="{'strike':!items.active}">Qty : {{items.qty}}</p>
+      </div>
+      <div class="col">
+        <button class="btn btn-sm btn-success" (click)="onIncrease(items)" id="negetive">+</button>
+      </div>
+    </div>
+    <div class=" form-check my-3">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1+{{i}}" (click)="onCheckBoxClick(items)" [checked]="!items.active">
+        <label class="form-check-label" for="exampleCheck1{{i}}">Out Of Stock</label>
+    </div>
+    
+    
+    <button class="btn btn-sm btn-danger" (click)="onClick(items)">Delete</button>
+</div>
+
+
