@@ -37,13 +37,13 @@ describe('AddItemsComponent', () => {
     expect(data.querySelector('.form-label')?.textContent).toEqual('Item Name');
   })
   it('should be called onSubmit method after submitting the form ', () =>{
+    
+    const getForm = fixture.debugElement.query(By.css('form'));
     //creating jasmine spy for creating fake form submit
     const spy = spyOn(component, 'onSubmit'); 
-    const compiled = fixture.debugElement.nativeElement;
-    const getForm = fixture.debugElement.query(By.css('#form'));
     //submitting the form
-    getForm.triggerEventHandler('submit', compiled);
-    expect(component.onSubmit).toHaveBeenCalled();
+    getForm.triggerEventHandler('submit');
+    expect(spy).toHaveBeenCalled();
 
   })
   
