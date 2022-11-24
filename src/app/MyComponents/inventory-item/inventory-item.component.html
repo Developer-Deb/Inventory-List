@@ -3,7 +3,7 @@
     <h6 [ngClass]="{'strike':!items.active}">Description : {{items.desc}}</h6>
     <div class="row row-cols-auto mt-3">
       <div class="col">
-        <button class="btn btn-sm btn-success" (click)="onDecrease(items)">-</button>
+        <button class="btn btn-sm btn-success" (click)="onDecrease(items)" id="positive">-</button>
       </div>
       <div class="col">
         <p [ngClass]="{'strike':!items.active}">Qty : {{items.qty}}</p>
@@ -18,7 +18,7 @@
     </div>
     
     
-    <button class="btn btn-sm btn-danger" (click)="onClick(items)">Delete</button>
+    <button class="btn btn-sm btn-danger" (click)="onClick(items)" id="delete">Delete</button>
 </div>
 
 

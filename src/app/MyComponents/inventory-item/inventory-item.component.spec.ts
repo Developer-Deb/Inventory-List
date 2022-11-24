@@ -1,5 +1,6 @@
 import { Input, NgModule, Pipe } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { Item } from 'src/app/Item';
 
 import { InventoryItemComponent } from './inventory-item.component';
@@ -33,4 +34,14 @@ describe('InventoryItemComponent', () => {
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call the onClick method after button click',fakeAsync(() => {
+    //creating spy
+    const spy = spyOn(component,"onClick");
+    let button  = fixture.debugElement.query(By.css('#delete'));
+    button.triggerEventHandler('click');
+    tick();
+    expect(spy).toHaveBeenCalled();
+  
+  }));
 });
