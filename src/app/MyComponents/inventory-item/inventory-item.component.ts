@@ -16,7 +16,10 @@ export class InventoryItemComponent implements OnInit {
   @Output() itemsCheckBox: EventEmitter<Item> = new EventEmitter();
   @Output() itemsQtyIncrease: EventEmitter<Item> = new EventEmitter();
   @Output() itemsQtyDecrease: EventEmitter<Item> = new EventEmitter();  
-  constructor() { }
+  constructor() {
+    //@Input() items;
+
+   }
 
   ngOnInit(): void {
   }
