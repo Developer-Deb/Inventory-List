@@ -40,7 +40,7 @@ describe('InventoryItemComponent', () => {
     const spy = spyOn(component,"onClick");
     let button  = fixture.debugElement.query(By.css('#delete'));
     button.triggerEventHandler('click');
-    tick();
+    tick(); // simulates the passage of time until all pending asynchronous activities finish
     expect(spy).toHaveBeenCalled();
   
   }));
