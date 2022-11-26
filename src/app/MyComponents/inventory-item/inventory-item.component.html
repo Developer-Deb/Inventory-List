@@ -3,13 +3,13 @@
     <h6 [ngClass]="{'strike':!items.active}">Description : {{items.desc}}</h6>
     <div class="row row-cols-auto mt-3">
       <div class="col">
-        <button class="btn btn-sm btn-success" (click)="onDecrease(items)" id="positive">-</button>
+        <button class="btn btn-sm btn-success" (click)="onDecrease(items)" id="negetive">-</button>
       </div>
       <div class="col">
         <p [ngClass]="{'strike':!items.active}">Qty : {{items.qty}}</p>
       </div>
       <div class="col">
-        <button class="btn btn-sm btn-success" (click)="onIncrease(items)" id="negetive">+</button>
+        <button class="btn btn-sm btn-success" (click)="onIncrease(items)" id="positive">+</button>
       </div>
     </div>
     <div class=" form-check my-3">

@@ -1,7 +1,8 @@
-import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NgForm } from '@angular/forms';
+import { DebugElement, NgModule } from '@angular/core';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { FormsModule, NgForm, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+
 
 import { AddItemsComponent } from './add-items.component';
 
@@ -12,8 +13,11 @@ describe('AddItemsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddItemsComponent,NgForm ],
-      //imports: [NgForm]
+      // imports: [
+      //   FormsModule
+      // ],
+      declarations: [ AddItemsComponent,NgForm ]
+      
     })
     .compileComponents();
 
@@ -36,15 +40,15 @@ describe('AddItemsComponent', () => {
     let data = fixture.nativeElement;
     expect(data.querySelector('.form-label')?.textContent).toEqual('Item Name');
   })
-  it('should be called onSubmit method after submitting the form ', () =>{
+  it('should be called onSubmit method after submitting the form ', fakeAsync(() =>{
     
     const getForm = fixture.debugElement.query(By.css('form'));
     //creating jasmine spy for creating fake form submit
     const spy = spyOn(component, 'onSubmit'); 
     //submitting the form
-    getForm.triggerEventHandler('submit');
+    getForm.triggerEventHandler('ngSubmit');
     expect(spy).toHaveBeenCalled();
 
-  })
+  }))
   
 });

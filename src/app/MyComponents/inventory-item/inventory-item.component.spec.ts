@@ -35,6 +35,32 @@ describe('InventoryItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should call the onDecrease method after button click',fakeAsync(() => {
+    //creating spy
+    const spy = spyOn(component,"onDecrease");
+    let button  = fixture.debugElement.query(By.css('#negetive'));
+    button.triggerEventHandler('click');
+    tick(); // simulates the passage of time until all pending asynchronous activities finish
+    expect(spy).toHaveBeenCalled();
+  
+  }));
+
+  it('should call the onIncrease method after button click',fakeAsync(()=> {
+    const spy = spyOn(component,"onIncrease");
+    let button = fixture.debugElement.query(By.css('#positive'));
+    button.triggerEventHandler('click');
+    tick();
+    expect(spy).toHaveBeenCalled();
+  }));
+
+  it('should call the onCheckBoxClick method after button click',fakeAsync( ()=>{
+    const spy = spyOn(component,'onCheckBoxClick');
+    let button = fixture.debugElement.query(By.css('.form-check-input'));
+    button.triggerEventHandler('click');
+    tick();
+    expect(spy).toHaveBeenCalled();
+  }));
+
   it('should call the onClick method after button click',fakeAsync(() => {
     //creating spy
     const spy = spyOn(component,"onClick");
@@ -44,4 +70,5 @@ describe('InventoryItemComponent', () => {
     expect(spy).toHaveBeenCalled();
   
   }));
+  
 });

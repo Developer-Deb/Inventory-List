@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AddItemsComponent } from '../add-items/add-items.component';
 
 import { InventoryComponent } from './inventory.component';
 
