@@ -1,5 +1,5 @@
 import { Input, NgModule, Pipe } from '@angular/core';
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Item } from 'src/app/Item';
 
@@ -67,6 +67,7 @@ describe('InventoryItemComponent', () => {
     let button  = fixture.debugElement.query(By.css('#delete'));
     button.triggerEventHandler('click');
     tick(); // simulates the passage of time until all pending asynchronous activities finish
+    //flush();
     expect(spy).toHaveBeenCalled();
   
   }));
